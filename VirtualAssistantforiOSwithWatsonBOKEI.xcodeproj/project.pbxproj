@@ -10,6 +10,7 @@
 		07F03D57C6B14F92D50DBFDC /* Pods_VirtualAssistantforiOSwithWatsonBOKEIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 564762CF35AE1CFB6DF240BC /* Pods_VirtualAssistantforiOSwithWatsonBOKEIUITests.framework */; };
 		1B2ADF6820CC356100FD3E30 /* ConversationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2ADF6720CC356100FD3E30 /* ConversationViewModel.swift */; };
 		1BFA485420CC4466008F9AF0 /* Roots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFA485320CC4466008F9AF0 /* Roots.swift */; };
+		1BFA485720CC62AF008F9AF0 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFA485620CC62AF008F9AF0 /* API.swift */; };
 		241CD224886EDAA788E399D6 /* Pods_VirtualAssistantforiOSwithWatsonBOKEITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1408AF5BA38870C07E899EEC /* Pods_VirtualAssistantforiOSwithWatsonBOKEITests.framework */; };
 		479CA546EC11450BA37D6474 /* BMSCredentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = B131D9C29FEC4A71AA804F35 /* BMSCredentials.plist */; };
 		555C91AC1D0F0731003E84E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555C91AB1D0F0731003E84E3 /* AppDelegate.swift */; };
@@ -64,6 +65,7 @@
 		18FB6B94BD7F5CF6B965945C /* Pods_MySampleAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MySampleAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B2ADF6720CC356100FD3E30 /* ConversationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewModel.swift; sourceTree = "<group>"; };
 		1BFA485320CC4466008F9AF0 /* Roots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Roots.swift; sourceTree = "<group>"; };
+		1BFA485620CC62AF008F9AF0 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		2356DF2AEA52EC2A9A8C6B04 /* Pods_StarterWatsonConversationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarterWatsonConversationTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		40C440CD45E797A604FD27B8 /* Pods-VirtualAssistantforiOSwithWatsonBOKEI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VirtualAssistantforiOSwithWatsonBOKEI.release.xcconfig"; path = "Pods/Target Support Files/Pods-VirtualAssistantforiOSwithWatsonBOKEI/Pods-VirtualAssistantforiOSwithWatsonBOKEI.release.xcconfig"; sourceTree = "<group>"; };
 		555C91A81D0F0731003E84E3 /* VirtualAssistantforiOSwithWatsonBOKEI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VirtualAssistantforiOSwithWatsonBOKEI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,6 +133,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1BFA485520CC629E008F9AF0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1BFA485620CC62AF008F9AF0 /* API.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		545C9DD4D3D79A706E9BC9CE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,6 +184,7 @@
 		555C91AA1D0F0731003E84E3 /* VirtualAssistantforiOSwithWatsonBOKEI */ = {
 			isa = PBXGroup;
 			children = (
+				1BFA485520CC629E008F9AF0 /* Model */,
 				B131D9C29FEC4A71AA804F35 /* BMSCredentials.plist */,
 				5877770A1FF8402B00387021 /* training */,
 				555C91AB1D0F0731003E84E3 /* AppDelegate.swift */,
@@ -460,6 +471,8 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-VirtualAssistantforiOSwithWatsonBOKEI/Pods-VirtualAssistantforiOSwithWatsonBOKEI-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/BMSAnalyticsAPI/BMSAnalyticsAPI.framework",
 				"${BUILT_PRODUCTS_DIR}/BMSCore/BMSCore.framework",
 				"${BUILT_PRODUCTS_DIR}/MessageKit/MessageKit.framework",
@@ -467,6 +480,8 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BMSAnalyticsAPI.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BMSCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MessageKit.framework",
@@ -541,6 +556,7 @@
 				555C91AE1D0F0731003E84E3 /* ConversationViewController.swift in Sources */,
 				555C91AC1D0F0731003E84E3 /* AppDelegate.swift in Sources */,
 				587777161FF8759500387021 /* AssistantMessages.swift in Sources */,
+				1BFA485720CC62AF008F9AF0 /* API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

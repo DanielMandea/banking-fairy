@@ -37,10 +37,13 @@ class ConversationViewModel {
     var workspaceID: String?
     var current: Sender!
     var watson: Sender!
+    var api: API
 
-    init() {
+    init(api: API) {
         current = Sender(id: "123456", displayName: "You")
         watson =  Sender(id: "654321", displayName: "Jane")
+        self.api = api
+        api.delegate = self
     }
 
     // MARK: - Setup Methods
@@ -166,21 +169,21 @@ class ConversationViewModel {
         // Get response from Watson based on user text create a message Request first
         let messageRequest = MessageRequest(input: InputData(text:cleanText), context: self.context)
         // Call the Assistant API
-        assist.message(workspaceID: workspace, request: messageRequest, failure: failAssistantWithError) { response in
-
+        assist.message(workspaceID: workspace, request: messageRequest, failure: failAssistantWithError) { [weak self] response in
+            self?.api.fetch(with: response.context.additionalProperties)
             for watsonMessage in response.output.text {
                 guard !watsonMessage.isEmpty else {
                     continue
                 }
                 // Set current context
-                self.context = response.context
+                self?.context = response.context
                 DispatchQueue.main.async {
 
                     let attributedText = NSAttributedString(string: watsonMessage, attributes: [.font: UIFont.systemFont(ofSize: 14), .foregroundColor: UIColor.blue])
                     let id = UUID().uuidString
-                    let message = AssistantMessages(attributedText: attributedText, sender: self.watson, messageId: id, date: Date())
-                    self.messageList.append(message)
-                    self.delegate?.insertItemAtBottom()
+                    let message = AssistantMessages(attributedText: attributedText, sender: (self?.watson)!, messageId: id, date: Date())
+                    self?.messageList.append(message)
+                    self?.delegate?.insertItemAtBottom()
                 }
             }
         }
@@ -223,4 +226,17 @@ class ConversationViewModel {
         return now
     }
 
+}
+
+// MARK: - Update
+
+extension ConversationViewModel: Update {
+
+    func send(message: String) {
+        let attributedText = NSAttributedString(string: message, attributes: [.font: UIFont.systemFont(ofSize: 14), .foregroundColor: UIColor.blue])
+        let id = UUID().uuidString
+        let message = AssistantMessages(attributedText: attributedText, sender: watson, messageId: id, date: Date())
+        messageList.append(message)
+        delegate?.insertItemAtBottom()
+    }
 }

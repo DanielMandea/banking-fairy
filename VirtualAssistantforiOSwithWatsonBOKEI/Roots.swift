@@ -23,7 +23,8 @@ class Routes {
         guard let nav = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as? UINavigationController, let vc = nav.topViewController as? ConversationViewController else {
             return UIViewController()
         }
-        let viewModel = ConversationViewModel()
+        let api = API()
+        let viewModel = ConversationViewModel(api: api)
         vc.viewModel = viewModel
         return nav
     }
