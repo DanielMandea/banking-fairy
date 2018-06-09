@@ -17,10 +17,6 @@
 import UIKit
 import BMSCore
 
-
-
-
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -29,15 +25,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
+
+        // Override point for customization after application launch.
+        window = UIWindow(frame: UIScreen.main.bounds)
+        Routes.setRootViewController(for: window)
+        
+
         let myBMSClient = BMSClient.sharedInstance
         myBMSClient.initialize(bluemixRegion: BMSClient.Region.unitedKingdom)
         myBMSClient.requestTimeout = 10.0 // seconds
-
-        
-
-        
-
-        
         
         return true
     }
