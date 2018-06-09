@@ -1,0 +1,23 @@
+PODS:
+  - BMSAnalyticsAPI (2.2.3)
+  - BMSCore (2.3.5):
+    - BMSAnalyticsAPI (~> 2.2)
+  - MessageKit (0.13.5)
+  - NVActivityIndicatorView (4.2.1):
+    - NVActivityIndicatorView/Presenter (= 4.2.1)
+  - NVActivityIndicatorView/Presenter (4.2.1)
+
+DEPENDENCIES:
+  - BMSCore (~> 2.0)
+  - MessageKit
+  - NVActivityIndicatorView
+
+SPEC CHECKSUMS:
+  BMSAnalyticsAPI: d259379069bb11d2ff365bf5b796a2677dfc3849
+  BMSCore: 446c16a7dbe14b5019751617a00dd947c65cca82
+  MessageKit: c4bd50e285a0f0761bc23a2e982aa7840873c4f5
+  NVActivityIndicatorView: 8068ba3ad39cb44cbaab25d89ff2546b3f092681
+
+PODFILE CHECKSUM: 4f77ef72746eeaf83003618b258ce3bbc63c7ad2
+
+COCOAPODS: 1.3.1

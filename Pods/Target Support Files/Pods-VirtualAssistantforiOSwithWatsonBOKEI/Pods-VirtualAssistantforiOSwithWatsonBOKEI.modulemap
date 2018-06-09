@@ -1,0 +1,6 @@
+framework module Pods_VirtualAssistantforiOSwithWatsonBOKEI {
+  umbrella header "Pods-VirtualAssistantforiOSwithWatsonBOKEI-umbrella.h"
+
+  export *
+  module * { export * }
+}
