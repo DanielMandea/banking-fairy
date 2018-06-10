@@ -13,6 +13,7 @@ target 'VirtualAssistantforiOSwithWatsonBOKEI' do
     pod 'NVActivityIndicatorView'
     pod 'Alamofire'
     pod 'AlamofireImage'
+    pod 'HEREMapsStarter'
 
     post_install do |installer|
         installer.pods_project.targets.each do |target|

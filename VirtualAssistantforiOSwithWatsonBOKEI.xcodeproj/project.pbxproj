@@ -16,6 +16,7 @@
 		1BB680FB20CC815300961EE8 /* UIImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB680FA20CC815300961EE8 /* UIImageHelper.swift */; };
 		1BB680FD20CCB4F100961EE8 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB680FC20CCB4F100961EE8 /* Transaction.swift */; };
 		1BB680FF20CCB4FD00961EE8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB680FE20CCB4FD00961EE8 /* User.swift */; };
+		1BB6810120CD051300961EE8 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB6810020CD051300961EE8 /* MapViewController.swift */; };
 		1BFA485420CC4466008F9AF0 /* Roots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFA485320CC4466008F9AF0 /* Roots.swift */; };
 		1BFA485720CC62AF008F9AF0 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFA485620CC62AF008F9AF0 /* API.swift */; };
 		241CD224886EDAA788E399D6 /* Pods_VirtualAssistantforiOSwithWatsonBOKEITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1408AF5BA38870C07E899EEC /* Pods_VirtualAssistantforiOSwithWatsonBOKEITests.framework */; };
@@ -78,6 +79,7 @@
 		1BB680FA20CC815300961EE8 /* UIImageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageHelper.swift; sourceTree = "<group>"; };
 		1BB680FC20CCB4F100961EE8 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		1BB680FE20CCB4FD00961EE8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1BB6810020CD051300961EE8 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		1BFA485320CC4466008F9AF0 /* Roots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Roots.swift; sourceTree = "<group>"; };
 		1BFA485620CC62AF008F9AF0 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		2356DF2AEA52EC2A9A8C6B04 /* Pods_StarterWatsonConversationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarterWatsonConversationTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -241,6 +243,7 @@
 				555C91B21D0F0731003E84E3 /* Assets.xcassets */,
 				E3D862A0202B8ECC00B34DE6 /* AssistantError.swift */,
 				1BFA485320CC4466008F9AF0 /* Roots.swift */,
+				1BB6810020CD051300961EE8 /* MapViewController.swift */,
 			);
 			path = VirtualAssistantforiOSwithWatsonBOKEI;
 			sourceTree = "<group>";
@@ -521,6 +524,7 @@
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/BMSAnalyticsAPI/BMSAnalyticsAPI.framework",
 				"${BUILT_PRODUCTS_DIR}/BMSCore/BMSCore.framework",
+				"${PODS_ROOT}/HEREMapsStarter/framework/NMAKit.framework",
 				"${BUILT_PRODUCTS_DIR}/MessageKit/MessageKit.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 			);
@@ -530,6 +534,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BMSAnalyticsAPI.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BMSCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NMAKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MessageKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 			);
@@ -609,6 +614,7 @@
 				555C91AE1D0F0731003E84E3 /* ConversationViewController.swift in Sources */,
 				555C91AC1D0F0731003E84E3 /* AppDelegate.swift in Sources */,
 				587777161FF8759500387021 /* AssistantMessages.swift in Sources */,
+				1BB6810120CD051300961EE8 /* MapViewController.swift in Sources */,
 				1BFA485720CC62AF008F9AF0 /* API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

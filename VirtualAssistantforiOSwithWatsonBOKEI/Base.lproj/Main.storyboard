@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,14 +26,22 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Assistant" id="oDK-Js-1Kx">
-                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="pUP-HA-DrR">
-                            <connections>
-                                <action selector="gatherUserData:" destination="BYZ-38-t0r" id="wWe-aw-QTy"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Location" id="oef-DH-HOc">
+                                <connections>
+                                    <action selector="showLocation:" destination="BYZ-38-t0r" id="vOp-lU-W3i"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="camera" id="pUP-HA-DrR">
+                                <connections>
+                                    <action selector="gatherUserData:" destination="BYZ-38-t0r" id="wWe-aw-QTy"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <segue destination="6De-cV-bow" kind="show" identifier="uploadProfile" id="tns-Lk-6c3"/>
+                        <segue destination="K38-gn-tLW" kind="show" identifier="showMap" id="ZqK-Fx-E40"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -129,6 +138,39 @@
                 <exit id="s6h-tP-ODZ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1842" y="266"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="874-2x-Nhe">
+            <objects>
+                <viewController id="K38-gn-tLW" customClass="MapViewController" customModule="VirtualAssistantforiOSwithWatsonBOKEI" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="k4P-6V-86f"/>
+                        <viewControllerLayoutGuide type="bottom" id="QXH-M6-txb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fcn-Zo-AeQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eb5-Z9-lLR" customClass="NMAMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="QXH-M6-txb" firstAttribute="top" secondItem="Eb5-Z9-lLR" secondAttribute="bottom" id="5zI-n4-Lr4"/>
+                            <constraint firstItem="Eb5-Z9-lLR" firstAttribute="top" secondItem="fcn-Zo-AeQ" secondAttribute="top" id="ANa-x4-bVE"/>
+                            <constraint firstAttribute="trailing" secondItem="Eb5-Z9-lLR" secondAttribute="trailing" id="EnL-sF-sih"/>
+                            <constraint firstItem="Eb5-Z9-lLR" firstAttribute="leading" secondItem="fcn-Zo-AeQ" secondAttribute="leading" id="U6I-0n-Ef2"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="Eb5-Z9-lLR" id="Vaw-8J-jgX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5NL-oC-O8I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1841" y="1039"/>
         </scene>
     </scenes>
     <resources>

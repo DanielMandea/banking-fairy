@@ -16,6 +16,7 @@
 
 import UIKit
 import BMSCore
+import NMAKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -25,6 +26,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
+        let kHelloMapAppID = "RxizEDutCIQNul5KSouI"
+        let kHelloMapAppCode = "ecCsvIjFvqhXP2WDZEf-Sg"
+
+        NMAApplicationContext.set(appId: kHelloMapAppID, appCode: kHelloMapAppCode)
 
         // Override point for customization after application launch.
         window = UIWindow(frame: UIScreen.main.bounds)

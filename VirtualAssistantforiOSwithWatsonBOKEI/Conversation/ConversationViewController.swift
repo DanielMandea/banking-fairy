@@ -108,6 +108,10 @@ class ConversationViewController: MessagesViewController, NVActivityIndicatorVie
     }
 
 
+    @IBAction func showLocation(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "showMap", sender: nil)
+    }
+
     @IBAction func saveUnwindToChat(segue: UIStoryboardSegue) {
         if let destination = segue.source as? ViewController, let text = destination.detectedText.text {
             viewModel.uploadScannedData(data: text)
@@ -278,6 +282,7 @@ extension ConversationViewController: MessageLabelDelegate {
 
     func didSelectAddress(_ addressComponents: [String : String]) {
         print("Address Selected: \(addressComponents)")
+        performSegue(withIdentifier: "showMap", sender: addressComponents)
     }
 
     func didSelectDate(_ date: Date) {
