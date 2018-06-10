@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="RnW-MV-e2s">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,15 +20,24 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Assistant" id="oDK-Js-1Kx"/>
+                    <navigationItem key="navigationItem" title="Assistant" id="oDK-Js-1Kx">
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="pUP-HA-DrR">
+                            <connections>
+                                <action selector="gatherUserData:" destination="BYZ-38-t0r" id="wWe-aw-QTy"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="6De-cV-bow" kind="show" identifier="uploadProfile" id="tns-Lk-6c3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1108" y="263.11844077961024"/>
+            <point key="canvasLocation" x="882" y="266"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="IQI-IE-ugP">
@@ -46,5 +61,77 @@
             </objects>
             <point key="canvasLocation" x="172" y="265.81709145427288"/>
         </scene>
+        <!--Scan Identity card-->
+        <scene sceneID="snp-Fq-Gir">
+            <objects>
+                <viewController id="6De-cV-bow" customClass="ViewController" customModule="VirtualAssistantforiOSwithWatsonBOKEI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="U0X-fE-dPG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholderimage" translatesAutoresizingMaskIntoConstraints="NO" id="Xom-RM-ZOT">
+                                <rect key="frame" x="0.0" y="64" width="375" height="233"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Xom-RM-ZOT" secondAttribute="height" multiplier="375:233" id="KIf-Fk-kEh"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4aZ-tF-PEJ">
+                                <rect key="frame" x="137.5" y="607" width="99" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="IgW-Xf-5GT"/>
+                                </constraints>
+                                <state key="normal" title="Upload image "/>
+                                <connections>
+                                    <action selector="pickImageClicked:" destination="6De-cV-bow" eventType="touchUpInside" id="2MZ-cJ-Snt"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="kYW-pz-csl">
+                                <rect key="frame" x="178" y="171" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="PN3-77-Kfk">
+                                <rect key="frame" x="0.0" y="305" width="375" height="294"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" address="YES"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Xom-RM-ZOT" firstAttribute="top" secondItem="4ob-eS-DS0" secondAttribute="top" id="1l7-47-DRM"/>
+                            <constraint firstItem="PN3-77-Kfk" firstAttribute="top" secondItem="Xom-RM-ZOT" secondAttribute="bottom" constant="8" id="2ll-8N-Rsd"/>
+                            <constraint firstItem="4aZ-tF-PEJ" firstAttribute="top" secondItem="PN3-77-Kfk" secondAttribute="bottom" constant="8" id="I5U-NK-hh8"/>
+                            <constraint firstItem="4ob-eS-DS0" firstAttribute="bottom" secondItem="4aZ-tF-PEJ" secondAttribute="bottom" constant="20" id="Jn2-n4-i9W"/>
+                            <constraint firstItem="PN3-77-Kfk" firstAttribute="trailing" secondItem="4ob-eS-DS0" secondAttribute="trailing" id="LwU-PS-Ear"/>
+                            <constraint firstItem="Xom-RM-ZOT" firstAttribute="trailing" secondItem="4ob-eS-DS0" secondAttribute="trailing" id="O5B-h8-Wfi"/>
+                            <constraint firstItem="kYW-pz-csl" firstAttribute="centerY" secondItem="Xom-RM-ZOT" secondAttribute="centerY" id="WdI-aO-mYG"/>
+                            <constraint firstItem="kYW-pz-csl" firstAttribute="centerX" secondItem="Xom-RM-ZOT" secondAttribute="centerX" id="ZpY-ot-FXM"/>
+                            <constraint firstItem="Xom-RM-ZOT" firstAttribute="leading" secondItem="4ob-eS-DS0" secondAttribute="leading" id="aDr-Qy-Eb3"/>
+                            <constraint firstItem="4aZ-tF-PEJ" firstAttribute="centerX" secondItem="4ob-eS-DS0" secondAttribute="centerX" id="pX3-xe-I1G"/>
+                            <constraint firstItem="PN3-77-Kfk" firstAttribute="leading" secondItem="4ob-eS-DS0" secondAttribute="leading" id="wvE-O1-Wbb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4ob-eS-DS0"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Scan Identity card" id="b3N-Zl-glL">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="vbd-tI-tF2">
+                            <connections>
+                                <segue destination="s6h-tP-ODZ" kind="unwind" unwindAction="saveUnwindToChatWithSegue:" id="aH2-e9-eJw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="activityIndicator" destination="kYW-pz-csl" id="iha-R7-a76"/>
+                        <outlet property="detectedText" destination="PN3-77-Kfk" id="SBf-U8-gEL"/>
+                        <outlet property="imageView" destination="Xom-RM-ZOT" id="drF-kh-aFe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kN4-v9-hB2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="s6h-tP-ODZ" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1842" y="266"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="placeholderimage" width="300" height="300"/>
+    </resources>
 </document>

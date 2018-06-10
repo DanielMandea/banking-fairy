@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		07F03D57C6B14F92D50DBFDC /* Pods_VirtualAssistantforiOSwithWatsonBOKEIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 564762CF35AE1CFB6DF240BC /* Pods_VirtualAssistantforiOSwithWatsonBOKEIUITests.framework */; };
 		1B2ADF6820CC356100FD3E30 /* ConversationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2ADF6720CC356100FD3E30 /* ConversationViewModel.swift */; };
+		1B3A0AC720CC7E69009170C2 /* AlertControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3A0AC420CC7E68009170C2 /* AlertControllerUtils.swift */; };
+		1B3A0AC820CC7E69009170C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3A0AC520CC7E68009170C2 /* ViewController.swift */; };
+		1B3A0AC920CC7E69009170C2 /* ImageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3A0AC620CC7E68009170C2 /* ImageUtils.swift */; };
+		1B3A0ACB20CC7F5F009170C2 /* OCR.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1B3A0ACA20CC7F5F009170C2 /* OCR.mlmodel */; };
+		1BB680FB20CC815300961EE8 /* UIImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB680FA20CC815300961EE8 /* UIImageHelper.swift */; };
+		1BB680FD20CCB4F100961EE8 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB680FC20CCB4F100961EE8 /* Transaction.swift */; };
+		1BB680FF20CCB4FD00961EE8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB680FE20CCB4FD00961EE8 /* User.swift */; };
 		1BFA485420CC4466008F9AF0 /* Roots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFA485320CC4466008F9AF0 /* Roots.swift */; };
 		1BFA485720CC62AF008F9AF0 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFA485620CC62AF008F9AF0 /* API.swift */; };
 		241CD224886EDAA788E399D6 /* Pods_VirtualAssistantforiOSwithWatsonBOKEITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1408AF5BA38870C07E899EEC /* Pods_VirtualAssistantforiOSwithWatsonBOKEITests.framework */; };
@@ -64,6 +71,13 @@
 		1408AF5BA38870C07E899EEC /* Pods_VirtualAssistantforiOSwithWatsonBOKEITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VirtualAssistantforiOSwithWatsonBOKEITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		18FB6B94BD7F5CF6B965945C /* Pods_MySampleAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MySampleAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B2ADF6720CC356100FD3E30 /* ConversationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewModel.swift; sourceTree = "<group>"; };
+		1B3A0AC420CC7E68009170C2 /* AlertControllerUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertControllerUtils.swift; sourceTree = "<group>"; };
+		1B3A0AC520CC7E68009170C2 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1B3A0AC620CC7E68009170C2 /* ImageUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUtils.swift; sourceTree = "<group>"; };
+		1B3A0ACA20CC7F5F009170C2 /* OCR.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = OCR.mlmodel; sourceTree = "<group>"; };
+		1BB680FA20CC815300961EE8 /* UIImageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageHelper.swift; sourceTree = "<group>"; };
+		1BB680FC20CCB4F100961EE8 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		1BB680FE20CCB4FD00961EE8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1BFA485320CC4466008F9AF0 /* Roots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Roots.swift; sourceTree = "<group>"; };
 		1BFA485620CC62AF008F9AF0 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		2356DF2AEA52EC2A9A8C6B04 /* Pods_StarterWatsonConversationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarterWatsonConversationTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,10 +147,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B3A0AC220CC7DE0009170C2 /* Conversation */ = {
+			isa = PBXGroup;
+			children = (
+				555C91AD1D0F0731003E84E3 /* ConversationViewController.swift */,
+				1B2ADF6720CC356100FD3E30 /* ConversationViewModel.swift */,
+			);
+			path = Conversation;
+			sourceTree = "<group>";
+		};
+		1B3A0AC320CC7E09009170C2 /* OCR */ = {
+			isa = PBXGroup;
+			children = (
+				1B3A0AC520CC7E68009170C2 /* ViewController.swift */,
+				1B3A0AC620CC7E68009170C2 /* ImageUtils.swift */,
+				1B3A0AC420CC7E68009170C2 /* AlertControllerUtils.swift */,
+			);
+			path = OCR;
+			sourceTree = "<group>";
+		};
+		1BB680F920CC814400961EE8 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1BB680FA20CC815300961EE8 /* UIImageHelper.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		1BFA485520CC629E008F9AF0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1B3A0ACA20CC7F5F009170C2 /* OCR.mlmodel */,
 				1BFA485620CC62AF008F9AF0 /* API.swift */,
+				1BB680FC20CCB4F100961EE8 /* Transaction.swift */,
+				1BB680FE20CCB4FD00961EE8 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -184,13 +228,14 @@
 		555C91AA1D0F0731003E84E3 /* VirtualAssistantforiOSwithWatsonBOKEI */ = {
 			isa = PBXGroup;
 			children = (
+				1BB680F920CC814400961EE8 /* Utils */,
+				1B3A0AC320CC7E09009170C2 /* OCR */,
+				1B3A0AC220CC7DE0009170C2 /* Conversation */,
 				1BFA485520CC629E008F9AF0 /* Model */,
 				B131D9C29FEC4A71AA804F35 /* BMSCredentials.plist */,
 				5877770A1FF8402B00387021 /* training */,
 				555C91AB1D0F0731003E84E3 /* AppDelegate.swift */,
 				555C91B71D0F0731003E84E3 /* Info.plist */,
-				555C91AD1D0F0731003E84E3 /* ConversationViewController.swift */,
-				1B2ADF6720CC356100FD3E30 /* ConversationViewModel.swift */,
 				587777151FF8759400387021 /* AssistantMessages.swift */,
 				555C91AF1D0F0731003E84E3 /* Main.storyboard */,
 				555C91B21D0F0731003E84E3 /* Assets.xcassets */,
@@ -323,6 +368,7 @@
 				TargetAttributes = {
 					555C91A71D0F0731003E84E3 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = A3C4Y4NZNJ;
 						LastSwiftMigration = 0800;
 					};
 					555C91BB1D0F0731003E84E3 = {
@@ -552,6 +598,13 @@
 			files = (
 				1B2ADF6820CC356100FD3E30 /* ConversationViewModel.swift in Sources */,
 				1BFA485420CC4466008F9AF0 /* Roots.swift in Sources */,
+				1B3A0AC720CC7E69009170C2 /* AlertControllerUtils.swift in Sources */,
+				1BB680FB20CC815300961EE8 /* UIImageHelper.swift in Sources */,
+				1B3A0AC920CC7E69009170C2 /* ImageUtils.swift in Sources */,
+				1BB680FD20CCB4F100961EE8 /* Transaction.swift in Sources */,
+				1BB680FF20CCB4FD00961EE8 /* User.swift in Sources */,
+				1B3A0AC820CC7E69009170C2 /* ViewController.swift in Sources */,
+				1B3A0ACB20CC7F5F009170C2 /* OCR.mlmodel in Sources */,
 				E3D862A1202B8ECC00B34DE6 /* AssistantError.swift in Sources */,
 				555C91AE1D0F0731003E84E3 /* ConversationViewController.swift in Sources */,
 				555C91AC1D0F0731003E84E3 /* AppDelegate.swift in Sources */,
@@ -712,13 +765,14 @@
 			baseConfigurationReference = C5F2362AFA834C538C87F504 /* Pods-VirtualAssistantforiOSwithWatsonBOKEI.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = A3C4Y4NZNJ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/VirtualAssistantforiOSwithWatsonBOKEI/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ibm.starterwatsonassistant;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -731,13 +785,14 @@
 			baseConfigurationReference = 40C440CD45E797A604FD27B8 /* Pods-VirtualAssistantforiOSwithWatsonBOKEI.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = A3C4Y4NZNJ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/VirtualAssistantforiOSwithWatsonBOKEI/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ibm.starterwatsonassistant;
 				PRODUCT_NAME = "$(TARGET_NAME)";

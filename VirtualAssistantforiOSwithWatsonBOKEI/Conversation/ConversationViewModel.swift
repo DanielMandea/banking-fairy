@@ -17,6 +17,8 @@ protocol ConversationView: MeesagesView {
     func animate(with message: String?)
     func failAssistantWithError(_ error: Error)
     func insertItemAtBottom()
+    func authUser(with completion: @escaping Completion<Result>)
+    func uploadData()
 }
 
 protocol MeesagesView: class {
@@ -226,11 +228,29 @@ class ConversationViewModel {
         return now
     }
 
+
+    // MARK: - Actions
+
+    func uploadScannedData(data: String) {
+        delegate?.authUser(with: { (result) in
+            if result.success {
+                self.api.upload(data: data)
+            }
+        })
+    }
 }
 
 // MARK: - Update
 
 extension ConversationViewModel: Update {
+
+    func updateUser() {
+        delegate?.uploadData()
+    }
+
+    func authUser(with completion: @escaping Completion<Result>) {
+        delegate?.authUser(with: completion)
+    }
 
     func send(message: String) {
         let attributedText = NSAttributedString(string: message, attributes: [.font: UIFont.systemFont(ofSize: 14), .foregroundColor: UIColor.blue])
@@ -239,4 +259,5 @@ extension ConversationViewModel: Update {
         messageList.append(message)
         delegate?.insertItemAtBottom()
     }
+
 }

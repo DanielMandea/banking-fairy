@@ -20,6 +20,7 @@ import AssistantV1
 import MessageKit
 import MapKit
 import BMSCore
+import LocalAuthentication
 
 class ConversationViewController: MessagesViewController, NVActivityIndicatorViewable {
 
@@ -97,6 +98,19 @@ class ConversationViewController: MessagesViewController, NVActivityIndicatorVie
             return Avatar(image: UIImage(named: "watson_avatar"), initials: "WAT")
         default:
             return Avatar()
+        }
+    }
+
+    // MARK: - IBActions
+
+    @IBAction func gatherUserData(_ sender: UIBarButtonItem) {
+        uploadData()
+    }
+
+
+    @IBAction func saveUnwindToChat(segue: UIStoryboardSegue) {
+        if let destination = segue.source as? ViewController, let text = destination.detectedText.text {
+            viewModel.uploadScannedData(data: text)
         }
     }
 }
@@ -295,6 +309,50 @@ extension ConversationViewController: MessageInputBarDelegate {
 
 extension ConversationViewController: ConversationView {
 
+    func uploadData() {
+        performSegue(withIdentifier: "uploadProfile", sender: nil)
+    }
+
+    func authUser(with completion: @escaping Completion<Result>) {
+        let context = LAContext()
+
+        var error: NSError?
+
+        if context.canEvaluatePolicy(
+            LAPolicy.deviceOwnerAuthenticationWithBiometrics,
+            error: &error) {
+            // Device can use biometric authentication
+            context.evaluatePolicy(
+                LAPolicy.deviceOwnerAuthenticationWithBiometrics,
+                localizedReason: "Access requires authentication",
+                reply: {(success, error) in
+                    DispatchQueue.main.async {
+
+                        if let err = error {
+
+                            switch err._code {
+                            case LAError.Code.systemCancel.rawValue:
+                                completion((false, error))
+                            case LAError.Code.userCancel.rawValue:
+                                completion((false, error))
+                            case LAError.Code.userFallback.rawValue:
+                                completion((false, error))
+                            default:
+                                completion((false, nil))
+                            }
+
+                        } else {
+                            completion((true, nil))
+                        }
+                    }
+            })
+
+        } else {
+            // Device cannot use biometric authentication
+            completion((false, error))
+        }
+    }
+
     func failAssistantWithError(_ error: Error) {
         showAlert(with:.error(error.localizedDescription))
     }
@@ -340,7 +398,6 @@ extension ConversationViewController: ConversationView {
             }
         }
     }
-
 }
 
 
