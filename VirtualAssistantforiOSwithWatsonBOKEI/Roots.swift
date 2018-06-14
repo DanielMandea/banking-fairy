@@ -12,7 +12,6 @@ import UIKit
 class Routes {
 
     static func setRootViewController(for window: UIWindow?) {
-        // User is not logged in -> show login view
         window?.rootViewController = conversationController
         window?.makeKeyAndVisible()
     }
